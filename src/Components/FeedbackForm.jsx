@@ -36,7 +36,7 @@ const FeedbackForm = () => {
 
             //displaying a confirmation dialog with window.confirm() where the confirmationMessage created above is to be displayed
             //if the user confirms the detals, then "isConfirmed" equals true
-        const isConfirmed = window.confirm(`Please confirm your details: \n\${confirmationMessage}`);
+        const isConfirmed = window.confirm(`Please confirm your details: \n\n${confirmationMessage}`);
 
         //checkin if the user confirms the details
         if(isConfirmed){
