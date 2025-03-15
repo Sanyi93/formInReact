@@ -26,12 +26,38 @@ const FeedbackForm = () => {
         });
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const confirmationMessage= `
+            Name: ${formData.name}
+            Email: ${formData.email}
+            Feedback: ${formData.feedback}
+            `;
+
+            //displaying a confirmation dialog with window.confirm() where the confirmationMessage created above is to be displayed
+            //if the user confirms the detals, then "isConfirmed" equals true
+        const isConfirmed = window.confirm(`Please confirm your details: \n\${confirmationMessage}`);
+
+        //checkin if the user confirms the details
+        if(isConfirmed){
+            console.log('Submitting feedback: ', formData);
+            //the entered values will be reset after confirmation and submission
+            setFormData({
+                name: '',
+                email: '',
+                feedback: ''
+            });
+            //alert message to be displayed after confirmation & submission
+            alert('Thank you for your valuable feedback');
+        }
+    };
+
   return (
     <>
     <nav>
     Tell Us What You Think
     </nav>
-      <form className="feedback-form">
+      <form onSubmit={handleSubmit} className="feedback-form">
         <h2>We'd Love to Hear From You!</h2>
         <p>Please share your feedback with us.</p>
 
@@ -53,7 +79,7 @@ const FeedbackForm = () => {
             name="feedback"
             placeholder="Your Feedback"
             value={formData.feedback}
-            onChange={handleChange}han
+            onChange={handleChange}
         ></textarea>
         <button type="submit">Submit Feedback</button>
       </form>
