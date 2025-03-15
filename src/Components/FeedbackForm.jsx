@@ -6,7 +6,8 @@ const FeedbackForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        feedback: ''
+        feedback: '',
+        rating: ''
     });
 
     //event as a pramater represent the input interaction
@@ -32,6 +33,7 @@ const FeedbackForm = () => {
             Name: ${formData.name}
             Email: ${formData.email}
             Feedback: ${formData.feedback}
+            Rating: ${formData.rating}
             `;
 
             //displaying a confirmation dialog with window.confirm() where the confirmationMessage created above is to be displayed
@@ -45,7 +47,8 @@ const FeedbackForm = () => {
             setFormData({
                 name: '',
                 email: '',
-                feedback: ''
+                feedback: '',
+                rating: ''
             });
             //alert message to be displayed after confirmation & submission
             alert('Thank you for your valuable feedback');
@@ -81,6 +84,49 @@ const FeedbackForm = () => {
             value={formData.feedback}
             onChange={handleChange}
         ></textarea>
+        <div style={{display: 'flex', gap: '10px', flexDirection: 'column'}}>
+            <span>Rate Us:</span>
+            <p><input
+                    type= "radio"
+                    name="rating"
+                    value="1"
+                    onChange={handleChange}
+                    />
+                    1
+            </p>
+            <p><input
+                    type="radio"
+                    name="rating"
+                    value="2"
+                    onChange={handleChange}
+                    />
+                    2
+            </p>
+            <p><input
+                    type="radio"
+                    name="rating"
+                    value="3"
+                    onChange={handleChange}
+                    />
+                    3
+            </p>
+            <p><input
+                    type="radio"
+                    name="rating"
+                    value="4"
+                    onChange={handleChange}
+                    />
+                    4
+            </p>
+            <p><input
+                    type="radio"
+                    name="rating"
+                    value="5"
+                    onChnage={handleChange}
+                    />
+                    5
+            </p>
+        </div>
         <button type="submit">Submit Feedback</button>
       </form>
     </>
