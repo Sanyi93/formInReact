@@ -3,6 +3,12 @@ import './FeedbackForm.css'; // Import CSS for styling
 
 const FeedbackForm = () => {
 
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        feedback: ''
+    });
+
   return (
     <>
     <nav>
